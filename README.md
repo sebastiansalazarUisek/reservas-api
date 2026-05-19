@@ -26,3 +26,14 @@ task-api/
 ├── tests/
 ├── README.md
 └── requirements.txt
+
+## Equipo de trabajo
+- Sebastian Salazar
+
+## Convención de commits
+- feat: nueva funcionalidad
+- fix: corrección de errores
+- docs: documentación
+- refactor: mejora interna
+- test: pruebas
+- chore: configuración
