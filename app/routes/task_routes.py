@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 
 from app.models import ReservaCreate
 from app.services.task_service import (
@@ -6,6 +6,8 @@ from app.services.task_service import (
     registrar_reserva,
     confirmar_reserva_service
 )
+
+from app.utils.validators import validate_exists
 
 router = APIRouter(prefix="/reservas")
 
@@ -25,10 +27,7 @@ def confirmar(reserva_id: int):
 
     reserva = confirmar_reserva_service(reserva_id)
 
-    if not reserva:
-        raise HTTPException(
-            status_code=404,
-            detail="Reserva no encontrada"
-        )
-
-    return reserva
+    return validate_exists(
+        reserva,
+        "Reserva no encontrada"
+    )

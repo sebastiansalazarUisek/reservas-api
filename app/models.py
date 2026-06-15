@@ -14,3 +14,14 @@ class Reserva(BaseModel):
     fecha: str
     descripcion: Optional[str] = None
     confirmada: bool = False
+    
+class CustomerCreate(BaseModel):
+    name: str
+    email: str
+
+
+class Customer(BaseModel):
+    id: int
+    name: str
+    email: str
+    active: bool = True
