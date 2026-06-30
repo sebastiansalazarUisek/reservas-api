@@ -1,4 +1,4 @@
-name: CI FastAPI
+name: CI CD FastAPI
 
 on:
   push:
@@ -26,3 +26,14 @@ jobs:
       - name: Ejecutar pruebas
         run: |
           pytest
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Preparar entrega simulada
+        run: |
+          echo "Las pruebas pasaron correctamente."
+          echo "La aplicación está lista para una entrega simulada."
+          echo "Versión preparada: v1.0.0"
