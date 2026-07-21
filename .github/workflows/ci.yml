@@ -27,6 +27,14 @@ jobs:
         run: |
           pytest
 
+      - name: Instalar Bandit
+        run: |
+          pip install bandit
+
+      - name: Ejecutar análisis de seguridad
+        run: |
+          bandit -r app
+
   release:
     needs: test
     runs-on: ubuntu-latest
